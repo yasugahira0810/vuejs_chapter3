@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+<div id="app">
+　　<h1>右クリックでコンテキストメニュー表示あり/なし</h1>
+　　<div v-on:click.right="handler">表示される => v-on:click.right="handler"</div>
+　　<!-- 右ボタンを押した時のコンテキストメニューを表示させない -->
+　　<div v-on:click.right.prevent="handler">表示されない例 => v-on:click.right.prevent="handler"</div>
+　　<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+　　<h1>イベントフェーズの制御</h1>
+　　<div>通常はターゲットとなる要素（今回はdiv2）から外側（親要素方向）にバブリングされる。</div>
+  <div v-on:click="handler('div1')">
+    div1
+    <br>
+    <a href="#app" v-on:click="handler('div2')">div2</a>通常のバブリング。ページ先頭に遷移。<br>
+    <a href="#app" v-on:click.stop="handler('div2(stop)')">div2(stop)</a>バブリング停止。ページ先頭に遷移。<br>
+    <a href="#app" v-on:click.prevent="handler('div2(prevent)')">div2(prevent)</a>バブリングは通常通り。遷移しない。<br></div>
+    <h1>イベントフェーズの制御（キャプチャモード）</h1>
+    <h3>通常</h3>
+    <div v-on:click="handler('div1')">div1
+      <div v-on:click="handler('div2')">div2
+        <div v-on:click="handler('div3')">div3</div>
+      </div>
+    </div>
+    <h3>div1にcapture修飾子つき</h3>
+    <div v-on:click.capture="handler('div1')">div1
+      <div v-on:click="handler('div2')">div2
+        <div v-on:click="handler('div3')">div3</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

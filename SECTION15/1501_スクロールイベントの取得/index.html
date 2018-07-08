@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <link href="main.css" rel="stylesheet">
+</head>
+<body>
+<div id="app">
+  <br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br>
+  <header v-bind:class="{ compact: scrollY > 20 }">
+    20pxより下にスクロールしたら .compact を付与
+  </header>
+  <br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br>
+</div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

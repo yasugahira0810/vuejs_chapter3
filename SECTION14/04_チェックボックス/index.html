@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  <div id="app">
+    <h2>単一要素</h2>
+	 <h3>通常</h3>
+    <label>
+      <input type="checkbox" v-model="val"> {{ val }}
+      <div>true/falseは文字列として定義しているわけではない。</div>
+    </label><br>
+    <h3>単一要素に値を設定したい場合</h3>
+    <input type="checkbox" v-model="val2" true-value="yes" false-value="no">{{ val2 }}  
+    <div>true/falseに"yes"/"no"のラベル付けて利用。</div>
+    <h2>複数要素</h2>
+    <label><input type="checkbox" v-model="val3" value="A">A</label>
+    <label><input type="checkbox" v-model="val3" value="B">B</label>
+    <label><input type="checkbox" v-model="val3" value="C">C</label>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
